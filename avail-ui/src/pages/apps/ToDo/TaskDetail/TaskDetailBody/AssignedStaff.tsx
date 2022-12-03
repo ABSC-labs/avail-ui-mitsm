@@ -1,10 +1,10 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
-import IntlMessages from "@crema/utility/IntlMessages";
-import { Fonts } from "shared/constants/AppEnums";
+import IntlMessages from "../../../../../@crema/utility/IntlMessages";
+import { Fonts } from "../../../../../shared/constants/AppEnums";
 
-import { StaffObj } from "types/models/apps/Todo";
+import { StaffObj } from "../../../../../types/models/apps/Todo";
 
 interface AssignedStaffProps {
   assignedStaff: StaffObj;
