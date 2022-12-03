@@ -1,34 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React from "react";
+import {Provider} from "react-redux";
+import CssBaseline from "@mui/material/CssBaseline";
+import AuthRoutes from "./@crema/utility/AuthRoutes";
+import AppContextProvider from "./@crema/utility/AppContextProvider";
+import AppThemeProvider from "./@crema/utility/AppThemeProvider";
+import AppStyleProvider from "./@crema/utility/AppStyleProvider";
+import AppLocaleProvider from "./@crema/utility/AppLocaleProvider";
+import AppLayout from "./@crema/core/AppLayout";
+import configureStore from "./redux/store";
+import {BrowserRouter} from "react-router-dom";
+import FirebaseAuthProvider from "./@crema/services/auth/firebase/FirebaseAuthProvider";
 
-function App() {
-  const [count, setCount] = useState(0)
+const store = configureStore();
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+const App = () => (
+    <AppContextProvider>
+      <Provider store={store}>
+        <AppThemeProvider>
+          <AppStyleProvider>
+            <AppLocaleProvider>
+              <BrowserRouter>
+                <FirebaseAuthProvider>
+                  <AuthRoutes>
+                    <CssBaseline/>
+                    <AppLayout/>
+                  </AuthRoutes>
+                </FirebaseAuthProvider>
+              </BrowserRouter>
+            </AppLocaleProvider>
+          </AppStyleProvider>
+        </AppThemeProvider>
+      </Provider>
+    </AppContextProvider>
+);
 
-export default App
+export default App;
