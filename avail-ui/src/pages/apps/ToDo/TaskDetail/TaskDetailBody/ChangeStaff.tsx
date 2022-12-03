@@ -1,6 +1,6 @@
 import React from "react";
 import InputLabel from "@mui/material/InputLabel";
-import IntlMessages from "@crema/utility/IntlMessages";
+import IntlMessages from "../../../../../@crema/utility/IntlMessages";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
