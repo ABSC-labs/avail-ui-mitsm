@@ -1,11 +1,11 @@
 import React from "react";
 import DoneIcon from "@mui/icons-material/Done";
-import IntlMessages from "@crema/utility/IntlMessages";
+import IntlMessages from "../../../../../@crema/utility/IntlMessages";
 import { onUpdateSelectedTask } from "../../../../../redux/actions";
 import { useDispatch } from "react-redux";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
-import { TodoObj } from "types/models/apps/Todo";
+import { TodoObj } from "../../../../../types/models/apps/Todo";
 
 const StatusButton = styled(Button)(({ theme }) => ({
   fontSize: 12,
