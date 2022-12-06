@@ -1,6 +1,6 @@
 import React from "react";
-import { Navigate, Route, Routes, useRoutes } from "react-router-dom";
-import AppSuspense  from "../../../@crema/core/AppSuspense";
+import { useRoutes } from "react-router-dom";
+import AppSuspense  from "@crema/core/AppSuspense";
 import AppFooter from "../AppLayout/components/AppFooter";
 import AppErrorBoundary from "../AppErrorBoundary";
 import Box from "@mui/material/Box";
@@ -45,9 +45,6 @@ const AppContentView: React.FC<AppContentViewProps> = ({ sxStyle }) => {
         <AppSuspense>
           <AppErrorBoundary>
             {routes}
-            <Routes>
-              <Route path="/" element={<Navigate to={initialUrl} />} />
-            </Routes>
           </AppErrorBoundary>
         </AppSuspense>
       </Box>

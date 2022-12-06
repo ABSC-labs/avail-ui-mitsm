@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { IntlProvider } from "react-intl";
 import { IntlGlobalProvider } from "../helper/Utils";
-import AppLocale from "../../../shared/localization";
+import AppLocale from "shared/localization";
 import { useLocaleContext } from "../AppContextProvider/LocaleContextProvide";
 
 interface AppLocaleProviderProps {

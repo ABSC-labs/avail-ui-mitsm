@@ -62,7 +62,7 @@ const AppSidebar: React.FC<AppSidebarProps> = (props) => {
                   }}
                   component="h2"
                 >
-                  AVAIL
+                  Crema
                 </Typography>
               </Box>
               <AppScrollbar

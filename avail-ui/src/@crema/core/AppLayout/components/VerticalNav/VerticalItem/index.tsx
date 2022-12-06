@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { Icon, ListItemText } from "@mui/material";
 import clsx from "clsx";
-import AppBadge from "../../../../../../@crema/core/AppBadge";
-import AppNavLink from "../../../../../../@crema/core/AppNavLink";
+import AppBadge from "@crema/core/AppBadge";
+import AppNavLink from "@crema/core/AppNavLink";
 import Box from "@mui/material/Box";
 import IntlMessages from "../../../../../utility/IntlMessages";
 import { checkPermission } from "../../../../../utility/helper/RouteHelper";

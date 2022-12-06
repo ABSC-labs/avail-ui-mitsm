@@ -1,13 +1,13 @@
 import React from "react";
 import { Button } from "@mui/material";
-import AppGridContainer from "../../../../@crema/core/AppGridContainer";
+import AppGridContainer from "@crema/core/AppGridContainer";
 import Grid from "@mui/material/Grid";
-import IntlMessages from "../../../../@crema/utility/IntlMessages";
+import IntlMessages from "@crema/utility/IntlMessages";
 import Box from "@mui/material/Box";
 import ProfileConnection from "./ProfileConnection";
 import { Form } from "formik";
-import AppTextField from "../../../../@crema/core/AppFormComponents/AppTextField";
-import { MemberData } from "../../../../@crema/services/db/profile";
+import AppTextField from "@crema/core/AppFormComponents/AppTextField";
+import { MemberData } from "@crema/services/db/profile";
 
 interface SocialFormProps {
   social: MemberData[];

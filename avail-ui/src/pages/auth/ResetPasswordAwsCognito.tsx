@@ -6,14 +6,14 @@ import { useDispatch } from "react-redux";
 import { fetchError } from "../../redux/actions";
 import { useIntl } from "react-intl";
 import { Fonts } from "../../shared/constants/AppEnums";
-import AppTextField from "../../@crema/core/AppFormComponents/AppTextField";
-import IntlMessages from "../../@crema/utility/IntlMessages";
+import AppTextField from "@crema/core/AppFormComponents/AppTextField";
+import IntlMessages from "@crema/utility/IntlMessages";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import AppInfoView from "../../@crema/core/AppInfoView";
+import AppInfoView from "@crema/core/AppInfoView";
 import AuthWrapper from "./AuthWrapper";
-import AppLogo from "../../@crema/core/AppLayout/components/AppLogo";
+import AppLogo from "@crema/core/AppLayout/components/AppLogo";
 
 const ResetPasswordAwsCognito = () => {
   const dispatch = useDispatch();

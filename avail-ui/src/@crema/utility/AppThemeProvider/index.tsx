@@ -4,7 +4,7 @@ import {
   StyledEngineProvider,
   ThemeProvider,
 } from "@mui/material/styles";
-import AppLocale from "../../../shared/localization";
+import AppLocale from "shared/localization";
 import { useThemeContext } from "../AppContextProvider/ThemeContextProvider";
 import { useLocaleContext } from "../AppContextProvider/LocaleContextProvide";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";

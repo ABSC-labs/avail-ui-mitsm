@@ -1,7 +1,7 @@
 import React, {isValidElement, ReactNode} from "react";
 import Card from "@mui/material/Card";
 import {Box, CardHeader} from "@mui/material";
-import {Fonts} from "../../../shared/constants/AppEnums";
+import {Fonts} from "shared/constants/AppEnums";
 import Link from "@mui/material/Link";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";

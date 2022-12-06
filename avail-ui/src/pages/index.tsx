@@ -1,46 +1,30 @@
-import React from "react";
-import { initialUrl } from "../shared/constants/AppConst";
-
 import { authRouteConfig } from "./auth";
+import { initialUrl } from "shared/constants/AppConst";
 import Error403 from "./errorPages/Error403";
+import React from "react";
 import { errorPagesConfigs } from "./errorPages";
-import { dashboardConfig } from "./dashboards";
-import { extraPagesConfigs } from "./extraPages";
-import { ecommerceConfig } from "./ecommerce";
-import { userListConfig } from "./userList";
-import { userPagesConfig } from "./userPages";
-// import { muiComponentConfigs } from "./muiComponents";
-// import { thirdPartyConfigs } from "./thirdParty";
-import { appsConfig } from "./apps";
-import Error404 from "./errorPages/Error404";
+import { samplePagesConfigs } from "./sample";
+import { profilePage } from "./profile";
+import { Navigate } from "react-router-dom";
 
 const authorizedStructure = {
   fallbackPath: "/signin",
   unAuthorizedComponent: <Error403 />,
-  routes: [
-    ...dashboardConfig,
-    ...appsConfig,
-    // ...thirdPartyConfigs,
-    ...extraPagesConfigs,
-    ...ecommerceConfig,
-    // ...muiComponentConfigs,
-    ...userPagesConfig,
-    ...userListConfig,
-  ],
+  routes: [...samplePagesConfigs, ...profilePage],
 };
 
 const unAuthorizedStructure = {
   fallbackPath: initialUrl,
-  routes: authRouteConfig,
+  routes: [...authRouteConfig, 
+    {
+      path: "/",
+      element: <Navigate to={initialUrl} />,
+    }
+  ],
 };
 
 const anonymousStructure = {
-  routes: errorPagesConfigs.concat([
-    {
-      path: "*",
-      element: <Error404 />,
-    },
-  ]),
+  routes: errorPagesConfigs,
 };
 
 export { authorizedStructure, unAuthorizedStructure, anonymousStructure };

@@ -1,12 +1,12 @@
 import React from "react";
 import { alpha, Box, Button, Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import AppGridContainer from "../../../../@crema/core/AppGridContainer";
+import AppGridContainer from "@crema/core/AppGridContainer";
 import Grid from "@mui/material/Grid";
-import IntlMessages from "../../../../@crema/utility/IntlMessages";
+import IntlMessages from "@crema/utility/IntlMessages";
 import { useDropzone } from "react-dropzone";
 import { Form } from "formik";
-import AppTextField from "../../../../@crema/core/AppFormComponents/AppTextField";
+import AppTextField from "@crema/core/AppFormComponents/AppTextField";
 import EditIcon from "@mui/icons-material/Edit";
 import { styled } from "@mui/material/styles";
 import { Fonts } from "../../../../shared/constants/AppEnums";

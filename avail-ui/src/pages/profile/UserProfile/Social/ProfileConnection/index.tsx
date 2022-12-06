@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { Fonts } from "../../../../../shared/constants/AppEnums";
-import IntlMessages from "../../../../../@crema/utility/IntlMessages";
-import AppGridContainer  from "../../../../../@crema/core/AppGridContainer";
+import IntlMessages from "@crema/utility/IntlMessages";
+import AppGridContainer  from "@crema/core/AppGridContainer";
 import Member from "./Member";
-import { MemberData } from "../../../../../@crema/services/db/profile";
+import { MemberData } from "@crema/services/db/profile";
 
 interface ProfileConnectionProps {
   profileConnection: MemberData[];

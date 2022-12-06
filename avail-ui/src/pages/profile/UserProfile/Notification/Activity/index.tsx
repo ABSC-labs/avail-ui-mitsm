@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { Fonts } from "../../../../../shared/constants/AppEnums";
-import IntlMessages from "../../../../../@crema/utility/IntlMessages";
+import IntlMessages from "@crema/utility/IntlMessages";
 import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { Activity } from "../../../../../@crema/services/db/profile";
+import { Activity } from "@crema/services/db/profile";
 
 interface ActivityProps {
   activity: Activity[];

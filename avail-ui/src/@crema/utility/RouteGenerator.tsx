@@ -1,7 +1,7 @@
 // import React from 'react';
-import { authRole, RoutePermittedRole } from "../../shared/constants/AppConst";
+import { authRole, RoutePermittedRole } from "shared/constants/AppConst";
 import { Navigate } from "react-router-dom";
-import { RouteObject } from "react-router";
+import { RouteObject } from "react-router-dom";
 
 /**
  * @param {Object} structure - The passed object that defines the routes.

@@ -10,7 +10,7 @@ import {
   ThemeMode,
   ThemeStyle,
   ThemeStyleRadius,
-} from "../../../shared/constants/AppEnums";
+} from "shared/constants/AppEnums";
 
 export const textLight = {
   primary: "rgb(17, 24, 39)",

@@ -1,10 +1,10 @@
 import React from "react";
-import notification from "../../../@crema/services/db/notifications";
+import notification from "@crema/services/db/notifications";
 import { IconButton, Theme } from "@mui/material";
 import List from "@mui/material/List";
 import Button from "@mui/material/Button";
-import AppScrollbar from "../../../@crema/core/AppScrollbar";
-import IntlMessages from "../../../@crema/utility/IntlMessages";
+import AppScrollbar from "@crema/core/AppScrollbar";
+import IntlMessages from "@crema/utility/IntlMessages";
 import NotificationItem from "./NotificationItem";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import Typography from "@mui/material/Typography";

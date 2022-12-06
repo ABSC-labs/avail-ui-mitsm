@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import AppLoader from "../../../@crema/core/AppLoader";
+import AppLoader from "@crema/core/AppLoader";
 
 interface AppSuspenseProps {
   children: ReactNode;

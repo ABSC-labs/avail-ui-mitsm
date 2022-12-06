@@ -3,14 +3,14 @@ import Button from "@mui/material/Button";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
-import AppInfoView from "../../../@crema/core/AppInfoView";
+import AppInfoView from "@crema/core/AppInfoView";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import IntlMessages from "../../../@crema/utility/IntlMessages";
-import AppTextField from "../../../@crema/core/AppFormComponents/AppTextField";
+import IntlMessages from "@crema/utility/IntlMessages";
+import AppTextField from "@crema/core/AppFormComponents/AppTextField";
 import { Fonts } from "../../../shared/constants/AppEnums";
 import AuthWrapper from "../AuthWrapper";
-import AppLogo from "../../../@crema/core/AppLayout/components/AppLogo";
+import AppLogo from "@crema/core/AppLayout/components/AppLogo";
 import { useIntl } from "react-intl";
 
 const ForgetPasswordJwtAuth = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import AppLogo from "../../../../../@crema/core/AppLayout/components/AppLogo";
+import AppLogo from "@crema/core/AppLayout/components/AppLogo";
 import PropTypes from "prop-types";
 import { useSidebarContext } from "../../../../utility/AppContextProvider/SidebarContextProvider";
 import SidebarHeaderWrapper from "./SidebarHeaderWrapper";

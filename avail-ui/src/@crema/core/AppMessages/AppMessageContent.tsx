@@ -1,11 +1,11 @@
 import React from "react";
-import messages from "../../../@crema/services/db/messages";
+import messages from "@crema/services/db/messages";
 import { Box, IconButton, Theme } from "@mui/material";
 import MessageItem from "./MessageItem";
 import List from "@mui/material/List";
 import Button from "@mui/material/Button";
-import AppScrollbar from "../../../@crema/core/AppScrollbar";
-import IntlMessages from "../../../@crema/utility/IntlMessages";
+import AppScrollbar from "@crema/core/AppScrollbar";
+import IntlMessages from "@crema/utility/IntlMessages";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import Typography from "@mui/material/Typography";
 import { SxProps } from "@mui/system";
