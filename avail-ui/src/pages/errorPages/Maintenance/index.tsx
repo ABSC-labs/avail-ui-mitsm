@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { grey } from "@mui/material/colors";
-import { Fonts } from "../../../shared/constants/AppEnums";
-import { initialUrl } from "../../../shared/constants/AppConst";
-import AppAnimate from "../../../@crema/core/AppAnimate";
-import IntlMessages from "../../../@crema/utility/IntlMessages";
+import { Fonts } from "shared/constants/AppEnums";
+import { initialUrl } from "shared/constants/AppConst";
+import AppAnimate from "@crema/core/AppAnimate";
+import IntlMessages from "@crema/utility/IntlMessages";
 import { useTheme } from "@mui/material";
 import { ReactComponent as Logo } from "../../../assets/icon/maintenance.svg";
 

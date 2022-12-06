@@ -1,6 +1,6 @@
 import React from "react";
 import AppSidebar from "./AppSidebar";
-import AppContentView  from "../../../../@crema/core/AppContentView";
+import AppContentView  from "@crema/core/AppContentView";
 import AppThemeSetting from "../../AppThemeSetting";
 import AppHeader from "./AppHeader";
 import clsx from "clsx";

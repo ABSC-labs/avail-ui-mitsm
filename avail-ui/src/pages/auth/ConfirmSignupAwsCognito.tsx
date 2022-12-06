@@ -5,13 +5,13 @@ import { useIntl } from "react-intl";
 import { Fonts } from "../../shared/constants/AppEnums";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import IntlMessages from "../../@crema/utility/IntlMessages";
+import IntlMessages from "@crema/utility/IntlMessages";
 import Button from "@mui/material/Button";
-import AppInfoView from "../../@crema/core/AppInfoView";
+import AppInfoView from "@crema/core/AppInfoView";
 import ReactCodeInput from "react-code-input";
 import AuthWrapper from "./AuthWrapper";
-import { useAwsCognitoActions } from "../../@crema/services/auth/aws-cognito/AWSAuthProvider";
-import AppLogo from "../../@crema/core/AppLayout/components/AppLogo";
+import { useAwsCognitoActions } from "@crema/services/auth/aws-cognito/AWSAuthProvider";
+import AppLogo from "@crema/core/AppLayout/components/AppLogo";
 
 const ConfirmSignupAwsCognito = (props: any) => {
   const { confirmCognitoUserSignup } = useAwsCognitoActions();

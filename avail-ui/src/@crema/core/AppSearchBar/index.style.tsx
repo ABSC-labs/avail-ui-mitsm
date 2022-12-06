@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, inputBaseClasses, lighten} from '@mui/material';
-import {Fonts} from '../../../shared/constants/AppEnums';
+import {Fonts} from 'shared/constants/AppEnums';
 import {styled} from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import {CremaTheme} from '../../../types/AppContextPropsType';

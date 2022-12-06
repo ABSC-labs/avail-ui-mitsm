@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import AppContentView from "../../../../@crema/core/AppContentView";
+import AppContentView from "@crema/core/AppContentView";
 import AppFixedFooter from "./AppFixedFooter";
 import AppHeader from "./AppHeader";
 import AppSidebar from "./AppSidebar";

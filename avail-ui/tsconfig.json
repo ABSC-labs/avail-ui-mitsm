@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@crema/*": ["@crema/*"]
+    },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": true,
-    "skipLibCheck": false,
-    "esModuleInterop": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,

@@ -1,14 +1,14 @@
 import React from "react";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
-import AppTextField from "../../../@crema/core/AppFormComponents/AppTextField";
-import IntlMessages from "../../../@crema/utility/IntlMessages";
-import { useAuthMethod } from "../../../@crema/utility/AuthHooks";
+import AppTextField from "@crema/core/AppFormComponents/AppTextField";
+import IntlMessages from "@crema/utility/IntlMessages";
+import { useAuthMethod } from "@crema/utility/AuthHooks";
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import AppInfoView from "../../../@crema/core/AppInfoView";
+import AppInfoView from "@crema/core/AppInfoView";
 import { Fonts } from "../../../shared/constants/AppEnums";
 import { Link } from "react-router-dom";
 import { AiOutlineGoogle, AiOutlineTwitter } from "react-icons/ai";

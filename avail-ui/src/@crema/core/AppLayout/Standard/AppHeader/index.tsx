@@ -1,9 +1,9 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import AppLngSwitcher from "../../../../../@crema/core/AppLngSwitcher";
+import AppLngSwitcher from "@crema/core/AppLngSwitcher";
 import Box from "@mui/material/Box";
-import AppSearchBar from "../../../../../@crema/core/AppSearchBar";
+import AppSearchBar from "@crema/core/AppSearchBar";
 import Hidden from "@mui/material/Hidden";
 import IconButton from "@mui/material/IconButton";
 import { toggleNavCollapsed } from "../../../../../redux/actions";

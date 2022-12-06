@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 
 import { styled } from "@mui/material/styles";
-import AppLogo from "../../@crema/core/AppLayout/components/AppLogo";
+import AppLogo from "@crema/core/AppLayout/components/AppLogo";
 
 const LogoWrapper = styled("div")(({ theme }) => {
   return {

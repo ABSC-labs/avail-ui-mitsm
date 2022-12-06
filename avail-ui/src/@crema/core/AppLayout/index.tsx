@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import AppContentView from "../../../@crema/core/AppContentView";
+import AppContentView from "@crema/core/AppContentView";
 import { useAuthUser } from "../../utility/AuthHooks";
 import {
   useLayoutActionsContext,

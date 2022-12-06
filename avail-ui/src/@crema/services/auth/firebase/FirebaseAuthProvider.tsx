@@ -147,7 +147,9 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
     email,
     password,
   }: SignInProps) => {
+    console.log("1");
     dispatch(fetchStart());
+    console.log("2");
     try {
       const { user } = await auth.signInWithEmailAndPassword(email, password);
       setFirebaseData({
@@ -155,6 +157,7 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
         isAuthenticated: true,
         isLoading: false,
       });
+      console.log("3");
       dispatch(fetchSuccess());
     } catch ({ message }) {
       setFirebaseData({
@@ -170,6 +173,7 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
     email,
     password,
   }: SignUpProps) => {
+    console.log("name, email, password", name, email, password);
     dispatch(fetchStart());
     try {
       const { user } = await auth.createUserWithEmailAndPassword(

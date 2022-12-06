@@ -1,6 +1,6 @@
 import React, { CSSProperties, ReactNode } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AppInfoView from "../../../@crema/core/AppInfoView";
+import AppInfoView from "@crema/core/AppInfoView";
 import { Box, Slide, Theme, Zoom } from "@mui/material";
 import Hidden from "@mui/material/Hidden";
 import IconButton from "@mui/material/IconButton";

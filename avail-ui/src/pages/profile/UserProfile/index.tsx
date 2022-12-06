@@ -2,7 +2,7 @@ import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import IntlMessages from "../../../@crema/utility/IntlMessages";
+import IntlMessages from "@crema/utility/IntlMessages";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineLock } from "react-icons/ai";
 import { IoMdInformationCircleOutline } from "react-icons/io";
@@ -14,8 +14,8 @@ import ChangePassword from "./ChangePassword";
 import Information from "./Information";
 import Social from "./Social";
 import Notification from "./Notification";
-import accountData from "../../../@crema/services/db/profile";
-import AppAnimate from "../../../@crema/core/AppAnimate";
+import accountData from "@crema/services/db/profile";
+import AppAnimate from "@crema/core/AppAnimate";
 import { Fonts } from "../../../shared/constants/AppEnums";
 
 function a11yProps(index: number) {

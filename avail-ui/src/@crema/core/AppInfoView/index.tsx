@@ -1,8 +1,8 @@
 import React from "react";
 
 import { useSelector } from "react-redux";
-import AppMessageView from "../../../@crema/core/AppMessageView";
-import AppLoader from "../../../@crema/core/AppLoader";
+import AppMessageView from "@crema/core/AppMessageView";
+import AppLoader from "@crema/core/AppLoader";
 import { AppState } from "../../../redux/store";
 
 const AppInfoView = () => {

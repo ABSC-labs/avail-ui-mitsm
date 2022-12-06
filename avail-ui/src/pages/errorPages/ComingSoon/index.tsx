@@ -7,11 +7,11 @@ import { showMessage } from "../../../redux/actions";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { grey } from "@mui/material/colors";
-import { Fonts } from "../../../shared/constants/AppEnums";
-import IntlMessages from "../../../@crema/utility/IntlMessages";
-import AppInfoView from "../../../@crema/core/AppInfoView";
-import AppAnimate from "../../../@crema/core/AppAnimate";
-import AppTextField from "../../../@crema/core/AppFormComponents/AppTextField";
+import { Fonts } from "shared/constants/AppEnums";
+import IntlMessages from "@crema/utility/IntlMessages";
+import AppInfoView from "@crema/core/AppInfoView";
+import AppAnimate from "@crema/core/AppAnimate";
+import AppTextField from "@crema/core/AppFormComponents/AppTextField";
 
 import { styled } from "@mui/material/styles";
 import { ReactComponent as Logo } from "../../../assets/icon/comingsoon.svg";

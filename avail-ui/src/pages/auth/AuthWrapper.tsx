@@ -67,10 +67,10 @@ const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
                 mb: 4,
               }}
             >
-              Welcome to AVAIL!
+              Welcome to Crema!
             </Typography>
             <Typography>
-              AVAIL is purely based on Material ui components and follows
+              Crema is purely based on Material ui components and follows
               Material ui guidelines.
             </Typography>
           </Box>

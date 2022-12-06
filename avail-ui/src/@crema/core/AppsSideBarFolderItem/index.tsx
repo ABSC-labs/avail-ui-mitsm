@@ -1,5 +1,5 @@
 import React from "react";
-import AppNavLink from "../../../@crema/core/AppNavLink";
+import AppNavLink from "@crema/core/AppNavLink";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";

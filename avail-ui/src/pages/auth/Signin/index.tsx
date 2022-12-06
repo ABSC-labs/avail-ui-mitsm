@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import AuthWrapper from "../AuthWrapper";
-import AppLogo from "../../../@crema/core/AppLayout/components/AppLogo";
+import AppLogo from "@crema/core/AppLayout/components/AppLogo";
 import SigninFirebase from "./SigninFirebase";
 
 const Signin = () => {

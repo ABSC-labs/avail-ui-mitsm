@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import AppCard  from "../../../../../@crema/core/AppCard";
+import AppCard  from "@crema/core/AppCard";
 import { alpha, Avatar, Box, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Fonts } from "../../../../../shared/constants/AppEnums";
-import { MemberData } from "../../../../../@crema/services/db/profile";
+import { MemberData } from "@crema/services/db/profile";
 import { CremaTheme } from "../../../../../types/AppContextPropsType";
 
 interface MemberProps {

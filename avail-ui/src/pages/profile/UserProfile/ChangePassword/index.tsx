@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import IntlMessages from "../../../../@crema/utility/IntlMessages";
+import IntlMessages from "@crema/utility/IntlMessages";
 import { Fonts } from "../../../../shared/constants/AppEnums";
 import ChangePasswordForm from "./ChangePasswordForm";
 import { Formik } from "formik";
