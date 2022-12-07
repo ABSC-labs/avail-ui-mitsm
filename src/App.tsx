@@ -23,9 +23,9 @@ function App() {
               <BrowserRouter>
                 <FirebaseAuthProvider>
                   <AuthRoutes>
-                  <CssBaseline />
-                  <AppLayout />
-                </AuthRoutes>
+                    <CssBaseline />
+                    <AppLayout />
+                  </AuthRoutes>
                 </FirebaseAuthProvider>
               </BrowserRouter>
             </AppLocaleProvider>

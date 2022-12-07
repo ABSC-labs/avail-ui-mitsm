@@ -7,7 +7,8 @@ import IntlMessages from '@crema/utility/IntlMessages';
 import { Formik } from 'formik';
 import InfoForm from './InfoForm';
 
-const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const validationSchema = yup.object({
   phone: yup.string().matches(phoneRegExp, 'Phone number is not valid'),

@@ -26,16 +26,18 @@ function SignupFirebase() {
       .string()
       .email(String(messages['validation.emailFormat']))
       .required(String(messages['validation.emailRequired'])),
-    password: yup
-      .string()
-      .required(String(messages['validation.passwordRequired'])),
+    password: yup.string().required(String(messages['validation.passwordRequired'])),
   });
 
   return (
     <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{
-        flex: 1, display: 'flex', flexDirection: 'column', mb: 5,
-      }}
+      <Box
+        sx={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          mb: 5,
+        }}
       >
         <Formik
           validateOnChange
@@ -49,10 +51,7 @@ function SignupFirebase() {
             setSubmitting(true);
             console.log('data', data);
             createUserWithEmailAndPassword(data);
-            console.log(
-              'createUserWithEmailAndPassword',
-              createUserWithEmailAndPassword,
-            );
+            console.log('createUserWithEmailAndPassword', createUserWithEmailAndPassword);
             setSubmitting(false);
           }}
         >
@@ -214,10 +213,7 @@ function SignupFirebase() {
             alignItems: 'center',
           }}
         >
-          <IconButton
-            sx={{ p: 2, '& svg': { fontSize: 18 } }}
-            onClick={() => signInWithPopup('google')}
-          >
+          <IconButton sx={{ p: 2, '& svg': { fontSize: 18 } }} onClick={() => signInWithPopup('google')}>
             <AiOutlineGoogle />
           </IconButton>
           <IconButton

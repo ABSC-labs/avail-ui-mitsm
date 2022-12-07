@@ -18,7 +18,4 @@ export interface SignoutAuthUserActions {
   type: typeof SIGNOUT_AUTH_SUCCESS;
 }
 
-export type AuthActions =
-  | UpdateAuthUserActions
-  | SetAuthTokenActions
-  | SignoutAuthUserActions;
+export type AuthActions = UpdateAuthUserActions | SetAuthTokenActions | SignoutAuthUserActions;

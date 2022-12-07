@@ -82,13 +82,7 @@ function Account() {
             orientation="vertical"
           >
             {tabs.map((tab, index) => (
-              <Tab
-                className="account-tab"
-                label={tab.name}
-                icon={tab.icon}
-                key={index}
-                {...a11yProps(index)}
-              />
+              <Tab className="account-tab" label={tab.name} icon={tab.icon} key={index} {...a11yProps(index)} />
             ))}
           </Tabs>
           <Box className="account-tabs-content">

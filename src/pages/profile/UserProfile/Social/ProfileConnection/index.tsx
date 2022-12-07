@@ -10,9 +10,7 @@ interface ProfileConnectionProps {
   profileConnection: MemberData[];
 }
 
-const ProfileConnection: React.FC<ProfileConnectionProps> = ({
-  profileConnection,
-}) => (
+const ProfileConnection: React.FC<ProfileConnectionProps> = ({ profileConnection }) => (
   <Box sx={{ position: 'relative' }}>
     <Typography
       component="h3"

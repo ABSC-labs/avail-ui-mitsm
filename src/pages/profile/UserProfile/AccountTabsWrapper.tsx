@@ -5,9 +5,7 @@ interface AccountTabsWrapperProps {
   children: ReactNode;
 }
 
-const AccountTabsWrapper: React.FC<AccountTabsWrapperProps> = ({
-  children,
-}) => (
+const AccountTabsWrapper: React.FC<AccountTabsWrapperProps> = ({ children }) => (
   <Box
     sx={{
       display: 'flex',
@@ -15,10 +13,8 @@ const AccountTabsWrapper: React.FC<AccountTabsWrapperProps> = ({
       '& .account-tabs': {
         minWidth: { xs: 200, lg: 280 },
         backgroundColor: (theme) => theme.palette.background.paper,
-        backgroundImage: (theme) => `linear-gradient(${alpha(
-          theme.palette.common.white,
-          0.05,
-        )}, ${alpha(theme.palette.common.white, 0.05)})`,
+        backgroundImage: (theme) =>
+          `linear-gradient(${alpha(theme.palette.common.white, 0.05)}, ${alpha(theme.palette.common.white, 0.05)})`,
         boxShadow: '0px 10px 10px 4px rgba(0, 0, 0, 0.04)',
         borderRadius: 4,
         py: 5,
@@ -55,10 +51,8 @@ const AccountTabsWrapper: React.FC<AccountTabsWrapperProps> = ({
       },
       '& .account-tabs-content': {
         backgroundColor: (theme) => theme.palette.background.paper,
-        backgroundImage: (theme) => `linear-gradient(${alpha(
-          theme.palette.common.white,
-          0.05,
-        )}, ${alpha(theme.palette.common.white, 0.05)})`,
+        backgroundImage: (theme) =>
+          `linear-gradient(${alpha(theme.palette.common.white, 0.05)}, ${alpha(theme.palette.common.white, 0.05)})`,
         boxShadow: '0px 10px 10px 4px rgba(0, 0, 0, 0.04)',
         borderRadius: 4,
         p: 5,

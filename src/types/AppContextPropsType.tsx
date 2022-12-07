@@ -1,20 +1,11 @@
-import {
-  Breakpoints, Direction, Theme, Transitions,
-} from '@mui/material';
+import { Breakpoints, Direction, Theme, Transitions } from '@mui/material';
 import { ComponentsProps } from '@mui/material/styles/props';
 import { Shadows } from '@mui/material/styles/shadows';
 import { Palette } from '@mui/material/styles/createPalette';
 import { Mixins } from '@mui/material/styles/createMixins';
 import { ZIndex } from '@mui/material/styles/zIndex';
 import { LanguageProps } from '../@crema/core/AppLngSwitcher/data';
-import {
-  FooterType,
-  LayoutType,
-  NavStyle,
-  RouteTransition,
-  ThemeMode,
-  ThemeStyle,
-} from '../shared/constants/AppEnums';
+import { FooterType, LayoutType, NavStyle, RouteTransition, ThemeMode, ThemeStyle } from '../shared/constants/AppEnums';
 import { RouteObject } from 'react-router-dom';
 
 interface CremaPalette extends Palette {

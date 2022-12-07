@@ -18,20 +18,23 @@ Please delete options that are not relevant.
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
 
 **Testing Setup**
-- [ ] 
+
+- [ ]
 
 **Testing Validation**
-- [ ] 
+
+- [ ]
 
 **Test Configuration**:
-* Environment:
-  * [ ] Docker
-  * [ ] Kubernetes
-  * [ ] Development
-  * [ ] Testing
-  * [ ] Staging 
-  * [ ] Production
-* SDK:
+
+- Environment:
+  - [ ] Docker
+  - [ ] Kubernetes
+  - [ ] Development
+  - [ ] Testing
+  - [ ] Staging
+  - [ ] Production
+- SDK:
 
 # Checklist:
 

@@ -68,10 +68,7 @@ const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => (
           >
             Welcome to Crema!
           </Typography>
-          <Typography>
-            Crema is purely based on Material ui components and follows
-            Material ui guidelines.
-          </Typography>
+          <Typography>Crema is purely based on Material ui components and follows Material ui guidelines.</Typography>
         </Box>
       </Box>
     </Card>

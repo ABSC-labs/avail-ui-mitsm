@@ -3,12 +3,8 @@ import React from 'react';
 const Signin = React.lazy(() => import('./Signin'));
 const Signup = React.lazy(() => import('./Signup'));
 const ForgotPassword = React.lazy(() => import('./ForgetPassword'));
-const ConfirmSignupAwsCognito = React.lazy(
-  () => import('./ConfirmSignupAwsCognito'),
-);
-const ResetPasswordAwsCognito = React.lazy(
-  () => import('./ResetPasswordAwsCognito'),
-);
+const ConfirmSignupAwsCognito = React.lazy(() => import('./ConfirmSignupAwsCognito'));
+const ResetPasswordAwsCognito = React.lazy(() => import('./ResetPasswordAwsCognito'));
 
 export const authRouteConfig = [
   {

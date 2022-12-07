@@ -36,10 +36,7 @@ const FormWrapper = styled(Form)(() => ({
 }));
 
 const validationSchema = yup.object({
-  email: yup
-    .string()
-    .email('The Email you entered is not a valid format!')
-    .required('Please enter Email Address!'),
+  email: yup.string().email('The Email you entered is not a valid format!').required('Please enter Email Address!'),
 });
 
 function ComingSoon() {
@@ -82,8 +79,7 @@ function ComingSoon() {
               fontWeight: Fonts.MEDIUM,
             }}
           >
-            <IntlMessages id="error.comingSoon" />
-            !
+            <IntlMessages id="error.comingSoon" />!
           </Box>
 
           <Box
@@ -114,9 +110,7 @@ function ComingSoon() {
             }}
             validationSchema={validationSchema}
             onSubmit={(data, { resetForm }) => {
-              dispatch(
-                showMessage(messages['error.comingSoonNotification'] as string),
-              );
+              dispatch(showMessage(messages['error.comingSoonNotification'] as string));
               resetForm();
             }}
           >
@@ -130,12 +124,7 @@ function ComingSoon() {
                   variant="outlined"
                 />
 
-                <Button
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                  className="button"
-                >
+                <Button variant="contained" color="primary" type="submit" className="button">
                   <IntlMessages id="error.notifyMe" />
                 </Button>
               </FormWrapper>
