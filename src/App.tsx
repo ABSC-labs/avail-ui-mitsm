@@ -13,6 +13,10 @@ import FirebaseAuthProvider from './@crema/services/auth/firebase/FirebaseAuthPr
 
 const store = configureStore();
 
+const items: string[] = ['test', 'test2'];
+
+console.log(items);
+
 function App() {
   return (
     <AppContextProvider>

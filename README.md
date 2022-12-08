@@ -35,6 +35,10 @@ This repository has installed [Prettier]() to help with autoformatting TypeScrip
 just format
 ```
 
+### Git Hooks
+
+This repository has setup a `pre-commit` git hook in order to run linting and prettier prior to commits being executed. If either task fails, then the files cannot be commited. If you need to force the commit through, then add the `--no-verify` option to the `git commit` command.
+
 ## Documentation
 
 https://docs.cremawork.com/

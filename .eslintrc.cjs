@@ -9,4 +9,8 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react'],
   root: true,
+  rules: {
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 'error',
+  },
 };
