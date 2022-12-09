@@ -13,7 +13,7 @@ import countries, { Country } from '@crema/services/db/countries';
 
 interface InfoFormProps {
   setFieldValue: (field: string, data: unknown) => void;
-  values: unknown;
+  values: { bio: string; dob: null; country: string; website: string };
 }
 
 const InfoForm: React.FC<InfoFormProps> = ({ values, setFieldValue }) => (

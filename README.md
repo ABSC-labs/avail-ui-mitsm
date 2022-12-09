@@ -39,6 +39,22 @@ just format
 
 This repository has setup a `pre-commit` git hook in order to run linting and prettier prior to commits being executed. If either task fails, then the files cannot be commited. If you need to force the commit through, then add the `--no-verify` option to the `git commit` command.
 
+### Docker
+
+To help with fast pace deployments you can quickly get a new docker image built. This `just` command will perform lint and prettier before building a Docker image. The Docker build process will copy over necessary files and then perform a `vite build` process to create bundled assets. After the vite build is complete all assets will be copied over to a base NGINX Docker image and expose port 80.
+
+```bash
+just dockerize
+```
+
+After the build is finished you can run the container with the following:
+
+```bash
+just docker
+```
+
+Browse to [http://localhost:8080](http://localhost:8080)
+
 ## Documentation
 
 https://docs.cremawork.com/

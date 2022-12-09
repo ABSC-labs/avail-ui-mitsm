@@ -12,6 +12,7 @@ export default defineConfig({
       '@crema': path.resolve(__dirname, './src/@crema'),
       types: path.resolve(__dirname, './src/types'),
       shared: path.resolve(__dirname, './src/shared'),
+      './runtimeConfig': './runtimeConfig.browser',
     },
   },
 });

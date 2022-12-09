@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { Box, Button } from '@mui/material';
 import AppGridContainer from '@crema/core/AppGridContainer';
 import Grid from '@mui/material/Grid';
@@ -19,7 +19,7 @@ function ChangePasswordForm() {
     setShowPassword(!showPassword);
   };
 
-  const onDownOldPassword = (event: Event) => {
+  const onDownOldPassword = (event: MouseEvent) => {
     event.preventDefault();
   };
 
@@ -27,7 +27,7 @@ function ChangePasswordForm() {
     setShowNewPassword(!showNewPassword);
   };
 
-  const onDownNewPassword = (event: Event) => {
+  const onDownNewPassword = (event: MouseEvent) => {
     event.preventDefault();
   };
 
@@ -35,7 +35,7 @@ function ChangePasswordForm() {
     setShowRetypeNewPassword(!showRetypeNewPassword);
   };
 
-  const onDownRetypeNewPassword = (event: Event) => {
+  const onDownRetypeNewPassword = (event: MouseEvent) => {
     event.preventDefault();
   };
 

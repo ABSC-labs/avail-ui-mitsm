@@ -5,7 +5,8 @@ import { Typography } from '@mui/material';
 import { Fonts } from '../../shared/constants/AppEnums';
 
 interface AuthWrapperProps {
-  children: unknown;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  children: any;
 }
 
 const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => (
