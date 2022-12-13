@@ -1,12 +1,14 @@
 git-hooks-dir := ".git/hooks"
 current-app-version := `jq -r .version ./package.json`
 
-##### DEFAULT
+# Colors
+red := "\\033[1;31m"
+green := "\\033[1;32m"
+nc := "\\033[0m"
 
 default:
   @just --list --unsorted
-  
-##### ADMIN ACTIONS
+
 # Initial Project Setup
 init: move-git-hooks
     VALUE_HOME=${NVM_HOME:=$HOME/.nvm}; source $VALUE_HOME/nvm.sh; nvm use
@@ -52,4 +54,4 @@ docker:
 
 # Version Print
 version:
-    RED="\033[1;31m"; GREEN="\033[1;32m"; NC="\033[0m"; echo "${GREEN}Avail${NC}: {{ current-app-version }}\n${GREEN}Node.js${NC}: $(node --version)\n${GREEN}Vite.js${NC}: $(npx vite --version)\n${GREEN}Docker${NC}: $(docker version)"
+    echo "{{ green }}Avail{{ nc }}: {{ current-app-version }}\n{{ green }}Node.js{{ nc }}: $(node --version)\n{{ green }}Vite.js{{ nc }}: $(npx vite --version)\n{{ green }}Docker{{ nc }}: $(docker version)"
