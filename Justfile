@@ -29,6 +29,10 @@ lint:
 format:
     npm run format
 
+# Run Cypress Tests
+cypress:
+    npx cypress run
+
 # Start Development Server
 dev:
     npm run dev
@@ -42,7 +46,7 @@ preview: build
     npm run preview
 
 # Quick Start
-quick: init dev
+quick: init keycloak sleep10 dev
 
 # Docker Build
 dockerize: clean-code
@@ -50,8 +54,25 @@ dockerize: clean-code
 
 # Docker Run
 docker:
-    docker run --rm --name avail-ui -p 8080:80 avail-ui
+    docker run -d --name avail-ui -p 8080:80 avail-ui
+
+# Start Local Keycloak
+keycloak:
+    if lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null; then echo "Keycloak already running..."; else docker run -d -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:20.0.1 start-dev; fi
 
 # Version Print
 version:
     echo "{{ green }}Avail{{ nc }}: {{ current-app-version }}\n{{ green }}Node.js{{ nc }}: $(node --version)\n{{ green }}Vite.js{{ nc }}: $(npx vite --version)\n{{ green }}Docker{{ nc }}: $(docker version)"
+
+# Sleep Helper
+sleep5:
+    just sleep 5
+
+sleep10:
+    just sleep 10
+
+sleep15:
+    just sleep 15
+
+sleep n:
+    for ((i=1; i<={{ n }}; i++)); do sleep 1 && echo "$i"; done;

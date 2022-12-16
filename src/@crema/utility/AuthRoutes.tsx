@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
-import AppLoader from "@crema/core/AppLoader";
-import PropTypes from "prop-types";
-import { useAuthUser } from "./AuthHooks";
+import React, { ReactNode } from 'react';
+import AppLoader from '@crema/core/AppLoader';
+import PropTypes from 'prop-types';
+import { useAuthUser } from './AuthHooks';
 
 interface AuthRoutesProps {
   children: ReactNode;
