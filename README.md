@@ -2,6 +2,8 @@
 
 ## Requirements
 
+- Install [jq](https://github.com/stedolan/jq)
+  - `brew install jq`
 - Install [nvm](https://github.com/nvm-sh/nvm)
   - `brew install nvm`
 - Install [Just](https://github.com/casey/just)
