@@ -11,6 +11,8 @@
 
 ## Quick Start
 
+- `nvm install`
+
 - `just quick`
 
 ## Development
