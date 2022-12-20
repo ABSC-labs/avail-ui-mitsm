@@ -2,6 +2,8 @@
 
 ## Requirements
 
+- Install [docker](https://www.docker.com/)
+  - `brew install --cask docker`
 - Install [jq](https://github.com/stedolan/jq)
   - `brew install jq`
 - Install [nvm](https://github.com/nvm-sh/nvm)
