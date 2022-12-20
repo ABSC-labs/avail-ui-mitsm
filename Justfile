@@ -1,5 +1,6 @@
 git-hooks-dir := ".git/hooks"
 current-app-version := `jq -r .version ./package.json`
+keycloak-port := "8085"
 
 # Colors
 red := "\\033[1;31m"
@@ -46,7 +47,7 @@ preview: build
     npm run preview
 
 # Quick Start
-quick: init keycloak sleep10 dev
+quick: init keycloak sleep15 dev
 
 # Docker Build
 dockerize: clean-code
@@ -58,7 +59,7 @@ docker:
 
 # Start Local Keycloak
 keycloak:
-    if lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null; then echo "Keycloak already running..."; else docker run -d -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:20.0.1 start-dev; fi
+    if lsof -Pi :{{ keycloak-port }} -sTCP:LISTEN -t >/dev/null; then echo "Keycloak already running..."; else docker run --name avail-keycloak -d -p {{ keycloak-port }}:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin ghcr.io/absc-labs/avail-keycloak:main start-dev --import-realm; fi
 
 # Version Print
 version:

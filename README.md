@@ -17,6 +17,8 @@
 
 - `just quick`
 
+> :warning: If this is your first time running Keycloak, then you might have to wait longer than 15 seconds for Keycloak to start.
+
 ## Development
 
 ### Just
@@ -65,10 +67,16 @@ Browse to [http://localhost:8080](http://localhost:8080)
 
 This UI runs on a Keycloak AuthN and AuthZ solution.
 
-1. `just keycloak`
-2. Import `deploy/local/keycloak/test.realm-export` to Keycloak when [creating a new realm](https://www.keycloak.org/docs/13.0/getting_started/#creating-a-realm-and-a-user) in Keycloak.
-3. [Create a new user](https://www.keycloak.org/docs/13.0/getting_started/#creating-a-realm-and-a-user).
-4. Add the `user` and/or `admin` role to the new user.
+`just keycloak`
+
+### Import Test Realm, Client, and Users
+
+Import `deploy/local/keycloak/test-avail-realm.json` to Keycloak when [creating a new realm](https://www.keycloak.org/docs/13.0/getting_started/#creating-a-realm-and-a-user) in Keycloak.
+
+### Add user
+
+1. [Create a new user](https://www.keycloak.org/docs/13.0/getting_started/#creating-a-realm-and-a-user).
+2. Add the `user` and/or `admin` role to the new user.
 
 ## Documentation
 
