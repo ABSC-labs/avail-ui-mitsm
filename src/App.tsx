@@ -13,10 +13,6 @@ import KeycloakAuthProvider from './@crema/services/auth/keycloak/KeycloakAuthPr
 
 const store = configureStore();
 
-const items: string[] = ['test', 'test2'];
-
-console.log(items);
-
 function App() {
   return (
     <AppContextProvider>

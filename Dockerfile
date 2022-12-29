@@ -1,4 +1,4 @@
-FROM node:19.2-alpine AS builder
+FROM node:19-alpine AS builder
 WORKDIR /app
 COPY public/ ./public/
 COPY src/ ./src/
@@ -7,7 +7,9 @@ RUN npm i --force
 RUN npm run build
 
 
-FROM nginx:stable-alpine AS nginx
+FROM nginx:1.23.3-alpine AS nginx
+RUN apk update && \
+    apk upgrade
 COPY --from=builder /app/dist/ /usr/share/nginx/html/
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;" ]

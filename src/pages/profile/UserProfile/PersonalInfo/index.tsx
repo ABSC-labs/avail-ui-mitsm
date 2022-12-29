@@ -23,7 +23,7 @@ function PersonalInfo() {
         validateOnBlur
         initialValues={{
           ...user,
-          photoURL: user.photoURL ? user.photoURL : '/assets/images/placeholder.jpg',
+          photoURL: user?.photoURL ? user.photoURL : '/assets/images/placeholder.jpg',
         }}
         validationSchema={validationSchema}
         onSubmit={(data, { setSubmitting }) => {

@@ -17,7 +17,7 @@ export const samplePagesConfigs = [
   {
     path: '/sample/page-3',
     element: (
-      <HasRole {...['admin']} test="admin-page3" fallback={<Error403 />}>
+      <HasRole {...['admin']} fallback={<Error403 />}>
         <Page3 />
       </HasRole>
     ),

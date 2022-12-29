@@ -44,7 +44,7 @@ const AvatarViewWrapper = styled('div')(({ theme }) => ({
 
 interface PersonalInfoFormProps {
   setFieldValue: (field: string, data: unknown) => void;
-  values: { photoURL: string; displayName: string; email: string };
+  values: { photoURL?: string; displayName?: string; email?: string };
 }
 
 const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ values, setFieldValue }) => {

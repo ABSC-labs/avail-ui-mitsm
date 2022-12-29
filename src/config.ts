@@ -1,5 +1,3 @@
-import 'dotenv';
-
 const config = {
   keycloak: {
     KEYCLOAK_URL: import.meta.env.VITE_KEYCLOAK_URL,
