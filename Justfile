@@ -49,6 +49,10 @@ preview: build
 # Quick Start
 quick: init keycloak sleep15 dev
 
+# Docker Builder Build
+dockerize-builder: clean-code
+    docker build . -f Dockerfile.builder -t avail-ui-builder:v{{ current-app-version }} -t avail-ui-builder:latest
+
 # Docker Build
 dockerize: clean-code
     source ./.env && docker build . -t avail-ui:v{{ current-app-version }} -t avail-ui:latest --build-arg keycloak_service_host=${KEYCLOAK_SERVICE_HOST} --build-arg keycloak_service_port=${KEYCLOAK_SERVICE_PORT} --build-arg keycloak_realm=${VITE_KEYCLOAK_REALM} --build-arg keycloak_client_id=${VITE_KEYCLOAK_CLIENT_ID}
