@@ -11,7 +11,7 @@ name: Docker Build and Publish
 run-name: ${{ github.actor }} - Docker build and push to ghcr.io registry
 on:
   push:
-    branches: ['test-build']
+    branches: ['release']
 
 env:
   REGISTRY: ghcr.io
