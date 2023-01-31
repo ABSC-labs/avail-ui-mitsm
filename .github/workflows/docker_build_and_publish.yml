@@ -11,7 +11,7 @@ name: Docker Build and Publish
 run-name: ${{ github.actor }} - Docker build and push to ghcr.io registry
 on:
   push:
-    branches: ['release']
+    branches: ['test-action']
 
 env:
   REGISTRY: ghcr.io
@@ -40,6 +40,15 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image for UI builder
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile.builder
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
