@@ -49,9 +49,13 @@ preview: build
 # Quick Start
 quick: init keycloak sleep15 dev
 
+# Docker Builder Build
+dockerize-builder: clean-code
+    docker build . -f Dockerfile.builder -t avail-ui-builder:v{{ current-app-version }} -t avail-ui-builder:latest --no-cache --progress plain
+
 # Docker Build
 dockerize: clean-code
-    docker build . -t avail-ui:v{{ current-app-version }} -t avail-ui:latest
+    source ./.env && docker build . -t avail-ui:v{{ current-app-version }} -t avail-ui:latest --no-cache --build-arg keycloak_service_host=${KEYCLOAK_SERVICE_HOST} --build-arg keycloak_service_port=${KEYCLOAK_SERVICE_PORT} --build-arg keycloak_realm=${VITE_KEYCLOAK_REALM} --build-arg keycloak_client_id=${VITE_KEYCLOAK_CLIENT_ID} --progress plain
 
 # Docker Run
 docker:
@@ -76,4 +80,4 @@ sleep15:
     just sleep 15
 
 sleep n:
-    for ((i=1; i<={{ n }}; i++)); do sleep 1 && echo "$i"; done;
+    for ((i=1; i<={{ n }}; i++)); do sleep 1 && print "$i..."; done;

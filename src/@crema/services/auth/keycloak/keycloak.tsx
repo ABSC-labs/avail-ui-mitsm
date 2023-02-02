@@ -10,7 +10,7 @@ export let keycloak: Keycloak;
  */
 export function getKeycloak() {
   if (!keycloak) {
-    const url = appConfig.keycloak.KEYCLOAK_URL;
+    const url = `http://${appConfig.keycloak.KEYCLOAK_SERVICE_HOST}:${appConfig.keycloak.KEYCLOAK_SERVICE_PORT}/`;
     const realm = appConfig.keycloak.KEYCLOAK_REALM;
     const clientId = appConfig.keycloak.KEYCLOAK_CLIENT_ID;
 
