@@ -11,6 +11,10 @@
 - Install [Just](https://github.com/casey/just)
   - `brew install just`
 
+## ghcr.io
+
+In order to pull docker images from GitHub registry you will need to create a public access token in your GitHub profile. Those directions are found [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
+
 ## Quick Start
 
 - `nvm install`
