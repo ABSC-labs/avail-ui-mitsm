@@ -73,8 +73,7 @@ function Maintenance() {
               <IntlMessages id="error.mantainanceMessage2" />
             </Typography>
             <Typography>
-              <IntlMessages id="error.mantainanceMessage3" />
-              .
+              <IntlMessages id="error.mantainanceMessage3" />.
             </Typography>
           </Box>
           <Button

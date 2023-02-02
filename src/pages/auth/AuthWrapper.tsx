@@ -5,7 +5,8 @@ import { Typography } from '@mui/material';
 import { Fonts } from '../../shared/constants/AppEnums';
 
 interface AuthWrapperProps {
-  children: unknown;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  children: any;
 }
 
 const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => (
@@ -68,10 +69,7 @@ const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => (
           >
             Welcome to Crema!
           </Typography>
-          <Typography>
-            Crema is purely based on Material ui components and follows
-            Material ui guidelines.
-          </Typography>
+          <Typography>Crema is purely based on Material ui components and follows Material ui guidelines.</Typography>
         </Box>
       </Box>
     </Card>

@@ -9,7 +9,7 @@ import AppLocaleProvider from '@crema/utility/AppLocaleProvider';
 import AppLayout from '@crema/core/AppLayout';
 import { BrowserRouter } from 'react-router-dom';
 import configureStore from './redux/store';
-import FirebaseAuthProvider from './@crema/services/auth/firebase/FirebaseAuthProvider';
+import KeycloakAuthProvider from './@crema/services/auth/keycloak/KeycloakAuthProvider';
 
 const store = configureStore();
 
@@ -21,12 +21,12 @@ function App() {
           <AppStyleProvider>
             <AppLocaleProvider>
               <BrowserRouter>
-                <FirebaseAuthProvider>
+                <KeycloakAuthProvider>
                   <AuthRoutes>
-                  <CssBaseline />
-                  <AppLayout />
-                </AuthRoutes>
-                </FirebaseAuthProvider>
+                    <CssBaseline />
+                    <AppLayout />
+                  </AuthRoutes>
+                </KeycloakAuthProvider>
               </BrowserRouter>
             </AppLocaleProvider>
           </AppStyleProvider>

@@ -58,8 +58,7 @@ function Error404() {
               fontWeight: Fonts.MEDIUM,
             }}
           >
-            <IntlMessages id="error.404Error" />
-            .
+            <IntlMessages id="error.404Error" />.
           </Box>
           <Box
             sx={{

@@ -57,8 +57,7 @@ function Error500() {
               fontWeight: Fonts.MEDIUM,
             }}
           >
-            <IntlMessages id="error.500Error" />
-            .
+            <IntlMessages id="error.500Error" />.
           </Box>
           <Box
             sx={{

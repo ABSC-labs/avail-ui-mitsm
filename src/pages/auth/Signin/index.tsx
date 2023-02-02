@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import AppLogo from '@crema/core/AppLayout/components/AppLogo';
 import AuthWrapper from '../AuthWrapper';
-import SigninFirebase from './SigninFirebase';
 
 function Signin() {
   return (
@@ -19,8 +18,6 @@ function Signin() {
             <AppLogo />
           </Box>
         </Box>
-
-        <SigninFirebase />
       </Box>
     </AuthWrapper>
   );

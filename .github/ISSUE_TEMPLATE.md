@@ -14,4 +14,4 @@
 
 ### Versions
 
-You can get this information from executing `npm version`.
+You can get this information from executing `just version`.

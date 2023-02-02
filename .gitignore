@@ -7,8 +7,11 @@
 
 # testing
 /coverage
+/cypress/videos
+/scans
 
 # production
+/dist
 /build
 
 # misc

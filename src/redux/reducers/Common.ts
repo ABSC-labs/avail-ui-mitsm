@@ -17,14 +17,14 @@ const INIT_STATE: Common = {
   message: '',
 };
 
-const CommonReducer = (
-  state = INIT_STATE,
-  action: CommonActionTypes,
-): Common => {
+const CommonReducer = (state = INIT_STATE, action: CommonActionTypes): Common => {
   switch (action.type) {
     case FETCH_START: {
       return {
-        ...state, error: '', message: '', loading: true,
+        ...state,
+        error: '',
+        message: '',
+        loading: true,
       };
     }
     case FETCH_SUCCESS: {

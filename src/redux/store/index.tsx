@@ -1,6 +1,4 @@
-import {
-  applyMiddleware, combineReducers, compose, createStore,
-} from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import * as hist from 'history';
 import reducers from '../reducers';
@@ -17,11 +15,7 @@ export default function configureStore(initialState?: AppState) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const enhancers: any[] = [];
 
-  return createStore(
-    rootReducer,
-    initialState,
-    compose(applyMiddleware(thunk), ...enhancers),
-  );
+  return createStore(rootReducer, initialState, compose(applyMiddleware(thunk), ...enhancers));
 }
 
 export { history };

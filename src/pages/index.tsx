@@ -15,7 +15,8 @@ const authorizedStructure = {
 
 const unAuthorizedStructure = {
   fallbackPath: initialUrl,
-  routes: [...authRouteConfig,
+  routes: [
+    ...authRouteConfig,
     {
       path: '/',
       element: <Navigate to={initialUrl} />,

@@ -4,6 +4,7 @@ import { RoutePermittedRole } from '../shared/constants/AppConst';
 
 export interface RouterConfigData {
   id: string;
+  role: [string];
   title: string;
   messageId: string;
   icon?: string | ReactNode;
@@ -19,12 +20,14 @@ export interface RouterConfigData {
 const routesConfig: RouterConfigData[] = [
   {
     id: 'app',
+    role: ['user'],
     title: 'Sample',
     messageId: 'sidebar.sample',
     type: 'group',
     children: [
       {
         id: 'page-1',
+        role: ['user'],
         title: 'Page 1',
         messageId: 'sidebar.sample.page1',
         type: 'item',
@@ -33,11 +36,21 @@ const routesConfig: RouterConfigData[] = [
       },
       {
         id: 'page-2',
+        role: ['user'],
         title: 'Page 2',
         messageId: 'sidebar.sample.page2',
         type: 'item',
         icon: <BiAlignLeft />,
         url: '/sample/page-2',
+      },
+      {
+        id: 'page-3',
+        role: ['admin'],
+        title: 'Page 3',
+        messageId: 'sidebar.sample.page3',
+        type: 'item',
+        icon: <BiAlignLeft />,
+        url: '/sample/page-3',
       },
     ],
   },
