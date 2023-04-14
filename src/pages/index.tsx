@@ -5,12 +5,13 @@ import { authRouteConfig } from './auth';
 import Error403 from './errorPages/Error403';
 import { errorPagesConfigs } from './errorPages';
 import { samplePagesConfigs } from './sample';
+import { workflowPagesConfigs } from './workflow';
 import { profilePage } from './profile';
 
 const authorizedStructure = {
   fallbackPath: '/signin',
   unAuthorizedComponent: <Error403 />,
-  routes: [...samplePagesConfigs, ...profilePage],
+  routes: [...samplePagesConfigs, ...workflowPagesConfigs, ...profilePage],
 };
 
 const unAuthorizedStructure = {
