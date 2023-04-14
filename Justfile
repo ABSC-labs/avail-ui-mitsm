@@ -80,4 +80,4 @@ sleep15:
     just sleep 15
 
 sleep n:
-    for ((i=1; i<={{ n }}; i++)); do sleep 1 && print "$i..."; done;
+    for ((i=1; i<={{ n }}; i++)); do sleep 1 && echo "$i..."; done;
