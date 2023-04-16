@@ -1,9 +1,10 @@
 import Error403 from '../errorPages/Error403';
 import React from 'react';
 import HasRole from 'shared/helpers/keycloak/HasRole';
-import WorkflowDashboard from './dashboard';
 
+const WorkflowDashboard = React.lazy(() => import('./dashboard'));
 const WorkflowApprovals = React.lazy(() => import('./approvals'));
+const WorkflowApprovalsNAVMC11537 = React.lazy(() => import('./approvals/navmc11537'));
 export const workflowPagesConfigs = [
   {
     path: '/workflows/dashboard',
@@ -18,6 +19,14 @@ export const workflowPagesConfigs = [
     element: (
       <HasRole {...['workflow']} fallback={<Error403 />}>
         <WorkflowApprovals />
+      </HasRole>
+    ),
+  },
+  {
+    path: '/workflows/approvals/navmc-11537',
+    element: (
+      <HasRole {...['workflow']} fallback={<Error403 />}>
+        <WorkflowApprovalsNAVMC11537 />
       </HasRole>
     ),
   },

@@ -1,8 +1,8 @@
 import React from "react";
 import { useThemeContext } from "../../../../utility/AppContextProvider/ThemeContextProvider";
 import { alpha, Box } from "@mui/material";
-import { ReactComponent as Logo } from "../../../../../assets/icon/logo.svg";
-import { ReactComponent as LogoText } from "../../../../../assets/icon/logo_text.svg";
+import { ReactComponent as Logo } from "../../../../../assets/icon/globe_and_anchor.svg";
+import { ReactComponent as LogoText } from "../../../../../assets/icon/globe_and_anchor_text.svg";
 
 interface AppLogoProps {
   color?: string;
