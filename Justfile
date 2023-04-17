@@ -55,7 +55,7 @@ dockerize-builder: clean-code
 
 # Docker Build
 dockerize: clean-code
-    source ./.env && docker build . -t avail-ui:v{{ current-app-version }} -t avail-ui:latest --no-cache --build-arg keycloak_service_host=${KEYCLOAK_SERVICE_HOST} --build-arg keycloak_service_port=${KEYCLOAK_SERVICE_PORT} --build-arg keycloak_realm=${VITE_KEYCLOAK_REALM} --build-arg keycloak_client_id=${VITE_KEYCLOAK_CLIENT_ID} --progress plain
+    source ./.env && docker build . -t avail-ui:v{{ current-app-version }} -t avail-ui:latest --no-cache --build-arg keycloak_service_protocol=${KEYCLOAK_SERVICE_PROTOCOL} --build-arg keycloak_service_host=${KEYCLOAK_SERVICE_HOST} --build-arg keycloak_service_port=${KEYCLOAK_SERVICE_PORT} --build-arg keycloak_realm=${VITE_KEYCLOAK_REALM} --build-arg keycloak_client_id=${VITE_KEYCLOAK_CLIENT_ID} --progress plain
 
 # Docker Run
 docker:

@@ -7,7 +7,12 @@ import EnvironmentPlugin from 'vite-plugin-environment';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr(), eslint(), EnvironmentPlugin(['KEYCLOAK_SERVICE_HOST', 'KEYCLOAK_SERVICE_PORT'])],
+  plugins: [
+    react(),
+    svgr(),
+    eslint(),
+    EnvironmentPlugin(['KEYCLOAK_SERVICE_PROTOCOL', 'KEYCLOAK_SERVICE_HOST', 'KEYCLOAK_SERVICE_PORT']),
+  ],
   resolve: {
     alias: {
       '@crema': path.resolve(__dirname, './src/@crema'),

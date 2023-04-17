@@ -4,7 +4,6 @@ import HasRole from 'shared/helpers/keycloak/HasRole';
 import WorkflowRELMs from './relms';
 
 const WorkflowDashboard = React.lazy(() => import('./dashboard'));
-const WorkflowApprovals = React.lazy(() => import('./approvals'));
 export const workflowPagesConfigs = [
   {
     path: '/workflows/dashboard',
@@ -19,14 +18,6 @@ export const workflowPagesConfigs = [
     element: (
       <HasRole {...['workflow']} fallback={<Error403 />}>
         <WorkflowRELMs />
-      </HasRole>
-    ),
-  },
-  {
-    path: '/workflows/approvals',
-    element: (
-      <HasRole {...['workflow']} fallback={<Error403 />}>
-        <WorkflowApprovals />
       </HasRole>
     ),
   },

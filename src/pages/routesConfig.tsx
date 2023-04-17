@@ -43,15 +43,6 @@ const routesConfig: RouterConfigData[] = [
         icon: <BiAlignLeft />,
         url: '/workflows/relms',
       },
-      {
-        id: 'approvals',
-        role: ['workflow'],
-        title: 'Approvals',
-        messageId: 'sidebar.workflow.approvals',
-        type: 'item',
-        icon: <BiAlignLeft />,
-        url: '/workflows/approvals',
-      },
     ],
   },
 ];
