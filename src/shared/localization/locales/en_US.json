@@ -607,6 +607,7 @@
   "sidebar.workflow": "Workflows",
   "sidebar.workflow.dashboard": "Dashboard",
   "sidebar.workflow.approvals": "Approvals",
+  "sidebar.workflow.relms": "RELM",
   "customizer.layoutTypes": "Layout Types",
   "sidebar.app.dashboard.analytics": "Analytics",
   "dashboard.analytics.welcome": "Welcome",

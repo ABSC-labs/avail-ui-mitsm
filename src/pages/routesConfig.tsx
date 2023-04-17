@@ -35,6 +35,15 @@ const routesConfig: RouterConfigData[] = [
         url: '/workflows/dashboard',
       },
       {
+        id: 'relm',
+        role: ['workflow'],
+        title: 'RELM',
+        messageId: 'sidebar.workflow.relms',
+        type: 'item',
+        icon: <BiAlignLeft />,
+        url: '/workflows/relms',
+      },
+      {
         id: 'approvals',
         role: ['workflow'],
         title: 'Approvals',

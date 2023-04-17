@@ -608,6 +608,7 @@
   "sidebar.workflow": "Flux de travail",
   "sidebar.workflow.dashboard": "Tableau de bord",
   "sidebar.workflow.approvals": "Approbations",
+  "sidebar.workflow.relms": "RELM",
   "customizer.layoutTypes": "Types de mise en page",
   "sidebar.app.dashboard.analytics": "Analytique",
   "dashboard.analytics.welcome": "Bienvenue",

@@ -21,6 +21,8 @@ import './index.css';
 import axios from 'axios';
 import { Marine } from 'types/models/mitsm/Marine';
 
+const startWorkflowURL = 'https://absc-dev.kinops.io/app/kapps/services/webApis/start-approval?timeout=10';
+
 export interface ConfirmationDialogRawProps {
   id: string;
   keepMounted: boolean;
@@ -47,9 +49,9 @@ function ConfirmationDialogRaw(props: ConfirmationDialogRawProps) {
 
   return (
     <Dialog sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 } }} maxWidth="xs" open={open} {...other}>
-      <DialogTitle>RELM Approval?</DialogTitle>
+      <DialogTitle>Initiate RELM Workflow?</DialogTitle>
       <DialogContent dividers>
-        Are you sure you want to approve the RELM for <strong>{value}</strong>?
+        Are you sure you want to start a RELM workflow for <strong>{value}</strong>?
       </DialogContent>
       <DialogActions>
         <Button autoFocus onClick={handleCancel}>
@@ -61,7 +63,7 @@ function ConfirmationDialogRaw(props: ConfirmationDialogRawProps) {
   );
 }
 
-function WorkflowApprovals() {
+function WorkflowRELMs() {
   const [marines, setMarines] = useState([]);
   const [open, setOpen] = useState(false);
   const [marineId, setMarineId] = useState(0);
@@ -69,7 +71,7 @@ function WorkflowApprovals() {
 
   useEffect(() => {
     axios.get('https://api.absc-labs.com/marines/').then((response) => {
-      setMarines(response.data.slice(100, 105));
+      setMarines(response.data.slice(0, 22));
     });
   }, []);
 
@@ -101,7 +103,7 @@ function WorkflowApprovals() {
   };
 
   const startWorkflow = (id: number) => {
-    axios.post('http://localhost.todo.com', config).then((response) => {
+    axios.post(startWorkflowURL, config).then((response) => {
       console.log(id, response);
     });
   };
@@ -121,7 +123,7 @@ function WorkflowApprovals() {
 
   return (
     <>
-      <h2>Approvals</h2>
+      <h2>Initiate RELM</h2>
       <Box sx={{ my: 2 }}>
         <TableContainer sx={{ maxWidth: 400 }} component={Paper}>
           <Table aria-label="simple table">
@@ -141,13 +143,14 @@ function WorkflowApprovals() {
                         id="approveBtn"
                         aria-label="delete"
                         variant="contained"
+                        color="success"
                         startIcon={<Check />}
                         className="approve-btn-width"
                         onClick={() => {
                           handleClickListItem(m.id, `${m.first} ${m.last}`);
                         }}
                       >
-                        Approve
+                        Start
                       </Button>
                     </StyledTableCell>
                   </StyledTableRow>
@@ -168,4 +171,4 @@ function WorkflowApprovals() {
   );
 }
 
-export default WorkflowApprovals;
+export default WorkflowRELMs;

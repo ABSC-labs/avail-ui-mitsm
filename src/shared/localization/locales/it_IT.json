@@ -608,6 +608,7 @@
   "sidebar.workflow": "Flussi di lavoro",
   "sidebar.workflow.dashboard": "Pannello di controllo",
   "sidebar.workflow.approvals": "Approvazioni",
+  "sidebar.workflow.relms": "RELM",
   "customizer.layoutTypes": "Tipi di layout",
   "sidebar.app.dashboard.analytics": "analitica",
   "dashboard.analytics.welcome": "benvenuta",
