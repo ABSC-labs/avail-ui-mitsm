@@ -21,6 +21,24 @@ function WorkflowDashboard() {
     },
   };
 
+  const mosRemains: { [id: string]: number } = {
+    '0100': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0111': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0121': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0200': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0300': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0311': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0313': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0321': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0331': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0341': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0351': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0352': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0400': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0600': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0621': Math.floor(Math.random() * (20 - -5 + 1)),
+    '0861': Math.floor(Math.random() * (20 - -5 + 1)),
+  };
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const units = ['H&S Co', 'A Co', 'B Co', 'C Co', 'W Co'];
   const ranks = ['LCpl', 'Cpl', 'Sgt', 'SSgt', 'GySgt', 'MSgt', '1Sgt', 'MGySgt', 'SgtMaj'];
@@ -40,28 +58,31 @@ function WorkflowDashboard() {
       const rankCountMap: { [key: string]: RankPieChart } = {};
 
       response.data.forEach((m: Marine) => {
-        const key = m.mos;
-        const mosCount = mosCountMap[+key];
-        if (mosCount) {
-          mosCount.id = key;
-          mosCount.count++;
-          mosCount.remain--;
-          mosCountMap[+key] = mosCount;
-        } else {
-          const mosCount: MosBarChart = {
-            id: key,
-            count: 1,
-            remain: Math.floor(Math.random() * (250 - 100 + 1) + 100),
-          };
-          mosCountMap[+key] = mosCount;
-        }
-
         const easDate = new Date(Date.parse(m.eas));
         const now = new Date();
         now.setMonth(now.getMonth() + 1);
         const oneYear = new Date();
         oneYear.setMonth(oneYear.getMonth() + 1);
         oneYear.setFullYear(oneYear.getFullYear() + 1);
+
+        const key = m.mos;
+        const mosCount = mosCountMap[+key];
+        if (easDate > now && easDate <= oneYear) {
+          if (mosCount) {
+            mosCount.id = key;
+            mosCount.count++;
+            mosCountMap[+key] = mosCount;
+          } else {
+            let mosCount: MosBarChart = { id: '', count: 0, remain: 0 };
+            mosCount = {
+              id: key,
+              count: 1,
+              remain: mosRemains[m.mos],
+            };
+            mosCountMap[+key] = mosCount;
+          }
+        }
+
         if (easDate > now && easDate <= oneYear) {
           const easMonth = easDate.getMonth();
           const easCount = easCounts[easMonth];
