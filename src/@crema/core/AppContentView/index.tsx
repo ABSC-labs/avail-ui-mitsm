@@ -13,7 +13,6 @@ import {
   unAuthorizedStructure,
 } from "../../../pages";
 import generateRoutes from "../../utility/RouteGenerator";
-import { initialUrl } from "../../../shared/constants/AppConst";
 
 interface AppContentViewProps {
   sxStyle?: SxProps;

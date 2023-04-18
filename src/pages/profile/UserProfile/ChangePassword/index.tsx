@@ -17,9 +17,7 @@ const validationSchema = yup.object({
     .required('No password provided.')
     .min(8, 'Password is too short - should be 8 chars minimum.')
     .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
-  retypeNewPassword: yup
-    .string()
-    .oneOf([yup.ref('newPassword'), null], 'Passwords must match'),
+  retypeNewPassword: yup.string().oneOf([yup.ref('newPassword'), null], 'Passwords must match'),
 });
 
 function ChangePassword() {

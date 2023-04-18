@@ -6,16 +6,7 @@ import itLang from './entries/it_IT';
 import esLang from './entries/es_ES';
 import frLang from './entries/fr_FR';
 
-interface AppLocalization {
-  en: { messages: Record<string, unknown>, muiLocale: Localization, locale: string },
-  zh: { messages: Record<string, unknown>, muiLocale: Localization, locale: string },
-  ar: { messages: Record<string, unknown>, muiLocale: Localization, locale: string },
-  it: { messages: Record<string, unknown>, muiLocale: Localization, locale: string },
-  es: { messages: Record<string, unknown>, muiLocale: Localization, locale: string },
-  fr: { messages: Record<string, unknown>, muiLocale: Localization, locale: string },
-}
-
-const AppLocale: AppLocalization = {
+const AppLocale: Record<string, { messages: Record<string, string>; muiLocale: Localization; locale: string }> = {
   en: enLang,
   zh: zhLang,
   ar: arLang,

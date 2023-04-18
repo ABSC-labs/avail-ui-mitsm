@@ -23,12 +23,8 @@ function ResetPasswordAwsCognito() {
   const { messages } = useIntl();
 
   const validationSchema = yup.object({
-    newPassword: yup
-      .string()
-      .required(String(messages['validation.enterNewPassword'])),
-    confirmPassword: yup
-      .string()
-      .required(String(messages['validation.reTypePassword'])),
+    newPassword: yup.string().required(String(messages['validation.enterNewPassword'])),
+    confirmPassword: yup.string().required(String(messages['validation.reTypePassword'])),
   });
 
   return (
@@ -69,9 +65,7 @@ function ResetPasswordAwsCognito() {
               dispatch(fetchError(messages['validation.pinLength'] as string));
             } else if (data.newPassword !== data.confirmPassword) {
               setErrors({
-                confirmPassword: String(
-                  <IntlMessages id="validation.passwordMisMatch" />,
-                ),
+                confirmPassword: String(<IntlMessages id="validation.passwordMisMatch" />),
               });
             } else {
               setSubmitting(true);

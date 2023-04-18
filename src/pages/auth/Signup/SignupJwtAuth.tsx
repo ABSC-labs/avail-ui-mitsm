@@ -23,16 +23,18 @@ function SignupJwtAuth() {
       .string()
       .email(String(messages['validation.emailFormat']))
       .required(String(messages['validation.emailRequired'])),
-    password: yup
-      .string()
-      .required(String(messages['validation.passwordRequired'])),
+    password: yup.string().required(String(messages['validation.passwordRequired'])),
   });
 
   return (
     <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{
-        flex: 1, display: 'flex', flexDirection: 'column', mb: 5,
-      }}
+      <Box
+        sx={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          mb: 5,
+        }}
       >
         <Formik
           validateOnChange

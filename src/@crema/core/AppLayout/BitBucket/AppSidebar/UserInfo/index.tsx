@@ -24,10 +24,10 @@ const UserInfo = () => {
   };
 
   const getUserAvatar = () => {
-    if (user.displayName) {
+    if (user?.displayName) {
       return user.displayName.charAt(0).toUpperCase();
     }
-    if (user.email) {
+    if (user?.email) {
       return user.email.charAt(0).toUpperCase();
     }
   };
@@ -44,7 +44,7 @@ const UserInfo = () => {
       }}
     >
       <Box onClick={handleClick}>
-        {user.photoURL ? (
+        {user?.photoURL ? (
           <Avatar
             sx={{
               height: 30,
@@ -88,7 +88,7 @@ const UserInfo = () => {
               mr: 3.5,
             }}
           >
-            {user.photoURL ? (
+            {user?.photoURL ? (
               <Avatar
                 sx={{
                   height: 40,
@@ -122,7 +122,7 @@ const UserInfo = () => {
               }}
               component="span"
             >
-              {user.displayName ? user.displayName : "Admin User "}
+              {user?.displayName ? user.displayName : "Admin User "}
             </Box>
             <Box
               sx={{

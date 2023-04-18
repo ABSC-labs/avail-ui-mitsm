@@ -26,19 +26,19 @@ function SignupAwsCognito() {
       .string()
       .email(String(messages['validation.emailFormat']))
       .required(String(messages['validation.emailRequired'])),
-    password: yup
-      .string()
-      .required(String(messages['validation.passwordRequired'])),
-    confirmPassword: yup
-      .string()
-      .required(String(messages['validation.reTypePassword'])),
+    password: yup.string().required(String(messages['validation.passwordRequired'])),
+    confirmPassword: yup.string().required(String(messages['validation.reTypePassword'])),
   });
 
   return (
     <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{
-        flex: 1, display: 'flex', flexDirection: 'column', mb: 5,
-      }}
+      <Box
+        sx={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          mb: 5,
+        }}
       >
         <Formik
           validateOnChange
@@ -52,9 +52,7 @@ function SignupAwsCognito() {
           onSubmit={(data, { setSubmitting, setErrors }) => {
             if (data.password !== data.confirmPassword) {
               setErrors({
-                confirmPassword: String(
-                  <IntlMessages id="validation.passwordMisMatch" />,
-                ),
+                confirmPassword: String(<IntlMessages id="validation.passwordMisMatch" />),
               });
             } else {
               setSubmitting(true);
@@ -231,9 +229,11 @@ function SignupAwsCognito() {
               '& svg': { fontSize: 18 },
               color: (theme) => theme.palette.text.secondary,
             }}
-            onClick={() => Auth.federatedSignIn({
-              provider: CognitoHostedUIIdentityProvider.Google,
-            })}
+            onClick={() =>
+              Auth.federatedSignIn({
+                provider: CognitoHostedUIIdentityProvider.Google,
+              })
+            }
           >
             <AiOutlineGoogle />
           </IconButton>
@@ -243,9 +243,11 @@ function SignupAwsCognito() {
               '& svg': { fontSize: 18 },
               color: (theme) => theme.palette.text.secondary,
             }}
-            onClick={() => Auth.federatedSignIn({
-              provider: CognitoHostedUIIdentityProvider.Facebook,
-            })}
+            onClick={() =>
+              Auth.federatedSignIn({
+                provider: CognitoHostedUIIdentityProvider.Facebook,
+              })
+            }
           >
             <FaFacebookF />
           </IconButton>

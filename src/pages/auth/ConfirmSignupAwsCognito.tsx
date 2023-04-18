@@ -23,6 +23,8 @@ function ConfirmSignupAwsCognito(props: unknown) {
   const { messages } = useIntl();
 
   const handleSubmit = () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const { email } = props.location.state || {};
     if (email && pin.length === 6) {
       confirmCognitoUserSignup(email, pin);

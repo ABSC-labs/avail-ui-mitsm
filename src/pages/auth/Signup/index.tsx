@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import AppLogo from '@crema/core/AppLayout/components/AppLogo';
 import AuthWrapper from '../AuthWrapper';
-import SignupFirebase from './SignupFirebase';
 
 function Signup() {
   return (
@@ -19,7 +18,6 @@ function Signup() {
             <AppLogo />
           </Box>
         </Box>
-        <SignupFirebase />
       </Box>
     </AuthWrapper>
   );

@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  alpha, Box, Button, Typography,
-} from '@mui/material';
+import { alpha, Box, Button, Typography } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import AppGridContainer from '@crema/core/AppGridContainer';
 import Grid from '@mui/material/Grid';
@@ -46,13 +44,10 @@ const AvatarViewWrapper = styled('div')(({ theme }) => ({
 
 interface PersonalInfoFormProps {
   setFieldValue: (field: string, data: unknown) => void;
-  values: unknown;
+  values: { photoURL?: string; displayName?: string; email?: string };
 }
 
-const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
-  values,
-  setFieldValue,
-}) => {
+const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ values, setFieldValue }) => {
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
@@ -118,32 +113,16 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
       </Box>
       <AppGridContainer spacing={4}>
         <Grid item xs={12} md={6}>
-          <AppTextField
-            name="displayName"
-            fullWidth
-            label={<IntlMessages id="common.fullName" />}
-          />
+          <AppTextField name="displayName" fullWidth label={<IntlMessages id="common.fullName" />} />
         </Grid>
         <Grid item xs={12} md={6}>
-          <AppTextField
-            fullWidth
-            name="username"
-            label={<IntlMessages id="common.userName" />}
-          />
+          <AppTextField fullWidth name="username" label={<IntlMessages id="common.userName" />} />
         </Grid>
         <Grid item xs={12} md={6}>
-          <AppTextField
-            name="email"
-            fullWidth
-            label={<IntlMessages id="common.email" />}
-          />
+          <AppTextField name="email" fullWidth label={<IntlMessages id="common.email" />} />
         </Grid>
         <Grid item xs={12} md={6}>
-          <AppTextField
-            name="company"
-            fullWidth
-            label={<IntlMessages id="common.company" />}
-          />
+          <AppTextField name="company" fullWidth label={<IntlMessages id="common.company" />} />
         </Grid>
         <Grid item xs={12} md={12}>
           <Box

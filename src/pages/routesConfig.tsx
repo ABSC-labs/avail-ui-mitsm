@@ -4,6 +4,7 @@ import { RoutePermittedRole } from '../shared/constants/AppConst';
 
 export interface RouterConfigData {
   id: string;
+  role: [string];
   title: string;
   messageId: string;
   icon?: string | ReactNode;
@@ -19,25 +20,28 @@ export interface RouterConfigData {
 const routesConfig: RouterConfigData[] = [
   {
     id: 'app',
-    title: 'Sample',
-    messageId: 'sidebar.sample',
+    role: ['user'],
+    title: 'Workflow',
+    messageId: 'sidebar.workflow',
     type: 'group',
     children: [
       {
-        id: 'page-1',
-        title: 'Page 1',
-        messageId: 'sidebar.sample.page1',
+        id: 'dashboard',
+        role: ['workflow'],
+        title: 'Dashboard',
+        messageId: 'sidebar.workflow.dashboard',
         type: 'item',
         icon: <BiAlignLeft />,
-        url: '/sample/page-1',
+        url: '/workflows/dashboard',
       },
       {
-        id: 'page-2',
-        title: 'Page 2',
-        messageId: 'sidebar.sample.page2',
+        id: 'relm',
+        role: ['workflow'],
+        title: 'RELM',
+        messageId: 'sidebar.workflow.relms',
         type: 'item',
         icon: <BiAlignLeft />,
-        url: '/sample/page-2',
+        url: '/workflows/relms',
       },
     ],
   },

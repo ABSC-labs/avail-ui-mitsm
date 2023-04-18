@@ -1,0 +1,12 @@
+.approve-btn-width {
+  width: 100px;
+}
+
+.confirm-dialog {
+  background-color: black;
+  color: white;
+}
+
+.success-dialog {
+  background-color: rgb(0, 183, 89);
+}

@@ -25,46 +25,22 @@ const SocialForm: React.FC<SocialFormProps> = ({ social }) => (
         >
           <AppGridContainer spacing={4}>
             <Grid item xs={12} md={6}>
-              <AppTextField
-                name="twitter"
-                fullWidth
-                label={<IntlMessages id="common.twitter" />}
-              />
+              <AppTextField name="twitter" fullWidth label={<IntlMessages id="common.twitter" />} />
             </Grid>
             <Grid item xs={12} md={6}>
-              <AppTextField
-                name="facebook"
-                fullWidth
-                label={<IntlMessages id="common.facebook" />}
-              />
+              <AppTextField name="facebook" fullWidth label={<IntlMessages id="common.facebook" />} />
             </Grid>
             <Grid item xs={12} md={6}>
-              <AppTextField
-                name="google"
-                fullWidth
-                label={<IntlMessages id="common.google" />}
-              />
+              <AppTextField name="google" fullWidth label={<IntlMessages id="common.google" />} />
             </Grid>
             <Grid item xs={12} md={6}>
-              <AppTextField
-                name="linkedIn"
-                fullWidth
-                label={<IntlMessages id="common.linkedIn" />}
-              />
+              <AppTextField name="linkedIn" fullWidth label={<IntlMessages id="common.linkedIn" />} />
             </Grid>
             <Grid item xs={12} md={6}>
-              <AppTextField
-                name="instagram"
-                fullWidth
-                label={<IntlMessages id="common.instagram" />}
-              />
+              <AppTextField name="instagram" fullWidth label={<IntlMessages id="common.instagram" />} />
             </Grid>
             <Grid item xs={12} md={6}>
-              <AppTextField
-                name="quora"
-                fullWidth
-                label={<IntlMessages id="common.quora" />}
-              />
+              <AppTextField name="quora" fullWidth label={<IntlMessages id="common.quora" />} />
             </Grid>
           </AppGridContainer>
         </Box>

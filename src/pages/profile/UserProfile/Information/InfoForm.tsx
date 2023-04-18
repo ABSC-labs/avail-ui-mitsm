@@ -13,20 +13,14 @@ import countries, { Country } from '@crema/services/db/countries';
 
 interface InfoFormProps {
   setFieldValue: (field: string, data: unknown) => void;
-  values: unknown;
+  values: { bio: string; dob: null; country: string; website: string };
 }
 
 const InfoForm: React.FC<InfoFormProps> = ({ values, setFieldValue }) => (
   <Form autoComplete="off">
     <AppGridContainer spacing={4}>
       <Grid item xs={12} md={12}>
-        <AppTextField
-          multiline
-          name="bio"
-          rows={3}
-          fullWidth
-          label={<IntlMessages id="common.yourBioDataHere" />}
-        />
+        <AppTextField multiline name="bio" rows={3} fullWidth label={<IntlMessages id="common.yourBioDataHere" />} />
       </Grid>
       <Grid item xs={12} md={6}>
         <Box
@@ -56,13 +50,9 @@ const InfoForm: React.FC<InfoFormProps> = ({ values, setFieldValue }) => (
           onChange={(_, newValue) => {
             setFieldValue('country', newValue);
           }}
-          getOptionLabel={(option:Country) => option.label}
+          getOptionLabel={(option: Country) => option.label}
           renderOption={(props, option) => (
-            <Box
-              component="li"
-              sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
-              {...props}
-            >
+            <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
               <img
                 loading="lazy"
                 width="20"
@@ -70,12 +60,7 @@ const InfoForm: React.FC<InfoFormProps> = ({ values, setFieldValue }) => (
                 srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
                 alt=""
               />
-              {option.label}
-              {' '}
-              (
-              {option.code}
-              ) +
-              {option.phone}
+              {option.label} ({option.code}) +{option.phone}
             </Box>
           )}
           renderInput={(params) => (
@@ -91,18 +76,10 @@ const InfoForm: React.FC<InfoFormProps> = ({ values, setFieldValue }) => (
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <AppTextField
-          name="website"
-          fullWidth
-          label={<IntlMessages id="common.website" />}
-        />
+        <AppTextField name="website" fullWidth label={<IntlMessages id="common.website" />} />
       </Grid>
       <Grid item xs={12} md={6}>
-        <AppTextField
-          fullWidth
-          name="phone"
-          label={<IntlMessages id="common.phoneNumber" />}
-        />
+        <AppTextField fullWidth name="phone" label={<IntlMessages id="common.phoneNumber" />} />
       </Grid>
       <Grid item xs={12} md={12}>
         <Box
