@@ -28,11 +28,12 @@ export interface ConfirmationDialogRawProps {
   keepMounted: boolean;
   value?: string;
   open: boolean;
-  onClose: (value?: string) => void;
+  onCancel: () => void;
+  onOk: () => void;
 }
 
 function ConfirmationDialogRaw(props: ConfirmationDialogRawProps) {
-  const { onClose, value: valueProp, open, ...other } = props;
+  const { onCancel, onOk, value: valueProp, open, ...other } = props;
   const [value, setValue] = useState(valueProp);
 
   useEffect(() => {
@@ -40,16 +41,16 @@ function ConfirmationDialogRaw(props: ConfirmationDialogRawProps) {
   }, [valueProp, open]);
 
   const handleCancel = () => {
-    onClose();
+    onCancel();
   };
 
   const handleOk = () => {
-    onClose(value);
+    onOk();
   };
 
   return (
     <Dialog sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 } }} maxWidth="xs" open={open} {...other}>
-      <DialogTitle>Initiate RELM Workflow?</DialogTitle>
+      <DialogTitle className="confirm-dialog">Initiate RELM Workflow?</DialogTitle>
       <DialogContent dividers>
         Are you sure you want to start a RELM workflow for <strong>{value}</strong>?
       </DialogContent>
@@ -63,10 +64,43 @@ function ConfirmationDialogRaw(props: ConfirmationDialogRawProps) {
   );
 }
 
+export interface SuccessDialogRawProps {
+  id: string;
+  keepMounted: boolean;
+  value?: string;
+  open: boolean;
+  onOk: () => void;
+}
+
+function SuccessDialogRaw(props: SuccessDialogRawProps) {
+  const { onOk, value: valueProp, open, ...other } = props;
+  const [value, setValue] = useState(valueProp);
+
+  useEffect(() => {
+    setValue(valueProp);
+  }, [valueProp, open]);
+
+  const handleOk = () => {
+    onOk();
+  };
+
+  return (
+    <Dialog sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 } }} maxWidth="xs" open={open} {...other}>
+      <DialogTitle className="success-dialog">Success!</DialogTitle>
+      <DialogContent dividers>
+        You successfully submitted a RELM for <strong>{value}</strong>?
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleOk}>Ok</Button>
+      </DialogActions>
+    </Dialog>
+  );
+}
+
 function WorkflowRELMs() {
   const [marines, setMarines] = useState([]);
   const [open, setOpen] = useState(false);
-  const [marineId, setMarineId] = useState(0);
+  const [openSuccess, setOpenSuccess] = useState(false);
   const [marineName, setMarineName] = useState('');
 
   useEffect(() => {
@@ -102,23 +136,37 @@ function WorkflowRELMs() {
     },
   };
 
-  const startWorkflow = (id: number) => {
-    axios.post(startWorkflowURL, config).then((response) => {
-      console.log(id, response);
+  const data = JSON.stringify({
+    EDIPI: '0987654321',
+    Status: 'Submitted',
+  });
+
+  const startWorkflow = () => {
+    axios.post(startWorkflowURL, data, config).then((response) => {
+      if (response.data.submission_id) {
+        setOpen(false);
+        setOpenSuccess(true);
+      }
     });
   };
 
   const handleClickListItem = (id: number, name: string) => {
-    setMarineId(id);
     setMarineName(name);
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleCancel = () => {
     setOpen(false);
+  };
 
+  const handleOk = () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    startWorkflow(marineId);
+    startWorkflow();
+  };
+
+  const handleOkSuccess = () => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    setOpenSuccess(false);
   };
 
   return (
@@ -137,7 +185,7 @@ function WorkflowRELMs() {
               {marines.map((m: Marine) => {
                 return (
                   <StyledTableRow key={m.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                    <StyledTableCell scope="row">{`${m.first} ${m.last}`}</StyledTableCell>
+                    <StyledTableCell scope="row">{`${m.rank}, ${m.last}, ${m.first}`}</StyledTableCell>
                     <StyledTableCell align="right">
                       <Button
                         id="approveBtn"
@@ -147,7 +195,7 @@ function WorkflowRELMs() {
                         startIcon={<Check />}
                         className="approve-btn-width"
                         onClick={() => {
-                          handleClickListItem(m.id, `${m.first} ${m.last}`);
+                          handleClickListItem(m.id, `${m.rank}, ${m.last}, ${m.first}`);
                         }}
                       >
                         Start
@@ -164,7 +212,15 @@ function WorkflowRELMs() {
         id="confirm-workflow-start"
         keepMounted
         open={open}
-        onClose={handleClose}
+        onCancel={handleCancel}
+        onOk={handleOk}
+        value={marineName}
+      />
+      <SuccessDialogRaw
+        id="success-workflow-start"
+        keepMounted
+        open={openSuccess}
+        onOk={handleOkSuccess}
         value={marineName}
       />
     </>

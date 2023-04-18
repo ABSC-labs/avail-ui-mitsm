@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Grid } from '@mui/material';
-import { Bar, BarChart, Label, LabelList, Pie, PieChart, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart, Cell, Label, Pie, PieChart, XAxis, YAxis } from 'recharts';
 import { Marine } from 'types/models/mitsm/Marine';
 import { MosBarChart } from 'types/models/mitsm/MosBarChart';
 import { EasBarChart } from 'types/models/mitsm/EasBarChart';
@@ -21,17 +21,13 @@ function WorkflowDashboard() {
     },
   };
 
-  const mos = ['0210', '0261', '0481', '0629', '0689', '2585', '2621', '2643', '2711', '9651'];
-  const remains = [150, 225, 140, 200, 100, 250, 225, 160, 160, 300];
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const units = ['H&S Co', 'A Co', 'B Co', 'C Co', 'W Co'];
+  const ranks = ['LCpl', 'Cpl', 'Sgt', 'SSgt', 'GySgt', 'MSgt', '1Sgt', 'MGySgt', 'SgtMaj'];
 
   useEffect(() => {
     axios.get('https://api.absc-labs.com/marines/', config).then((response) => {
-      const mosCounts: MosBarChart[] = [];
-      for (let i = 0; i < 10; i++) {
-        const v: MosBarChart = { id: mos[i], count: 0, remain: remains[i] };
-        mosCounts.push(v);
-      }
+      const mosCountMap: { [key: string]: MosBarChart } = {};
 
       const easCounts: EasBarChart[] = [];
       for (let i = 0; i < 12; i++) {
@@ -44,17 +40,34 @@ function WorkflowDashboard() {
       const rankCountMap: { [key: string]: RankPieChart } = {};
 
       response.data.forEach((m: Marine) => {
-        const key = m.mos.slice(0, 1);
-        const mosCount = mosCounts[+key];
-        mosCount.count++;
-        mosCount.remain--;
-        mosCounts[+key] = mosCount;
+        const key = m.mos;
+        const mosCount = mosCountMap[+key];
+        if (mosCount) {
+          mosCount.id = key;
+          mosCount.count++;
+          mosCount.remain--;
+          mosCountMap[+key] = mosCount;
+        } else {
+          const mosCount: MosBarChart = {
+            id: key,
+            count: 1,
+            remain: Math.floor(Math.random() * (250 - 100 + 1) + 100),
+          };
+          mosCountMap[+key] = mosCount;
+        }
 
-        const easDate = Date.parse(m.eas);
-        const easMonth = new Date(easDate).getMonth();
-        const easCount = easCounts[easMonth];
-        easCount.count++;
-        easCounts[easMonth] = easCount;
+        const easDate = new Date(Date.parse(m.eas));
+        const now = new Date();
+        now.setMonth(now.getMonth() + 1);
+        const oneYear = new Date();
+        oneYear.setMonth(oneYear.getMonth() + 1);
+        oneYear.setFullYear(oneYear.getFullYear() + 1);
+        if (easDate > now && easDate <= oneYear) {
+          const easMonth = easDate.getMonth();
+          const easCount = easCounts[easMonth];
+          easCount.count++;
+          easCounts[easMonth] = easCount;
+        }
 
         if (organizationCountMap[m.organization]) {
           const organizationCount: OrganizationPieChart = organizationCountMap[m.organization];
@@ -81,6 +94,12 @@ function WorkflowDashboard() {
         }
       });
 
+      const mosCounts: MosBarChart[] = [];
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      for (const [key, value] of Object.entries(mosCountMap)) {
+        mosCounts.push(value);
+      }
+
       const sumEasCounts: EasBarChart[] = [];
       let sum = 0;
       const nowMonth = new Date().getMonth();
@@ -92,16 +111,18 @@ function WorkflowDashboard() {
       }
 
       const organizationCounts: OrganizationPieChart[] = [];
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      for (const [key, value] of Object.entries(organizationCountMap)) {
-        organizationCounts.push(value);
-      }
+      units.forEach((v: string) => {
+        if (organizationCountMap[v].count > 0) {
+          organizationCounts.push(organizationCountMap[v]);
+        }
+      });
 
       const rankCounts: RankPieChart[] = [];
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      for (const [key, value] of Object.entries(rankCountMap)) {
-        rankCounts.push(value);
-      }
+      ranks.forEach((v: string) => {
+        if (rankCountMap[v].count > 0) {
+          rankCounts.push(rankCountMap[v]);
+        }
+      });
 
       setMosBarChartData(mosCounts);
       setEasBarChartData(sumEasCounts);
@@ -118,7 +139,7 @@ function WorkflowDashboard() {
         </Grid>
         <Grid item xs={12}>
           <Grid item xs={12}>
-            <h2>MOS Yearly Retention Count</h2>
+            <h2>Horizon Retention Progress by MOS</h2>
           </Grid>
           <Grid item xs={12}>
             <BarChart width={800} height={300} data={mosBarChartData}>
@@ -138,7 +159,7 @@ function WorkflowDashboard() {
           <Grid item xs={12}>
             <BarChart width={800} height={300} data={easBarChartData}>
               <XAxis dataKey="month" angle={315} dy={10} height={65}>
-                <Label value="Expected EAS" position="insideBottom" />
+                <Label value="Current EAS" position="insideBottom" />
               </XAxis>
               <YAxis />
               <Bar dataKey="count" fill="#FF0000" />
@@ -150,7 +171,7 @@ function WorkflowDashboard() {
             <h2>Reenlistment by Organization</h2>
           </Grid>
           <Grid item xs={6}>
-            <PieChart width={400} height={400}>
+            <PieChart width={500} height={400}>
               <Pie
                 data={organizationPieChartData}
                 cx="50%"
@@ -158,10 +179,22 @@ function WorkflowDashboard() {
                 outerRadius={120}
                 fill="#ff0000"
                 dataKey="count"
-                label
-              >
-                <LabelList dataKey="id" />
-              </Pie>
+                label={({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+                  const RADIAN = Math.PI / 180;
+                  // eslint-disable-next-line
+                  const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
+                  // eslint-disable-next-line
+                  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+                  // eslint-disable-next-line
+                  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+                  return (
+                    <text x={x} y={y} fill="#000000" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="hanging">
+                      {organizationPieChartData[index].id} ({`${(percent * 100).toFixed(1)}%`})
+                    </text>
+                  );
+                }}
+              />
             </PieChart>
           </Grid>
         </Grid>
@@ -170,9 +203,49 @@ function WorkflowDashboard() {
             <h2>Reenlistment by Rank</h2>
           </Grid>
           <Grid item xs={6}>
-            <PieChart width={400} height={400}>
-              <Pie data={rankPieChartData} cx="50%" cy="50%" outerRadius={120} fill="#ff0000" dataKey="count" label>
-                <LabelList dataKey="id" />
+            <PieChart width={470} height={400} margin={{ right: 20 }}>
+              <Pie
+                data={rankPieChartData}
+                cx="50%"
+                cy="50%"
+                outerRadius={120}
+                fill="#ff0000"
+                dataKey="count"
+                label={({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+                  let x = 0;
+                  let y = 0;
+                  if (rankPieChartData[index].id == 'SgtMaj') {
+                    const RADIAN = Math.PI / 180;
+                    const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
+                    x = cx + radius * Math.cos(-midAngle * RADIAN);
+                    y = cy + radius * Math.sin(-midAngle * RADIAN) - 10;
+                  } else if (rankPieChartData[index].id == 'MGySgt') {
+                    const RADIAN = Math.PI / 180;
+                    const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
+                    x = cx + radius * Math.cos(-midAngle * RADIAN);
+                    y = cy + radius * Math.sin(-midAngle * RADIAN);
+                  } else if (rankPieChartData[index].id == '1Sgt') {
+                    const RADIAN = Math.PI / 180;
+                    const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
+                    x = cx + radius * Math.cos(-midAngle * RADIAN);
+                    y = cy + radius * Math.sin(-midAngle * RADIAN) + 5;
+                  } else {
+                    const RADIAN = Math.PI / 180;
+                    const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
+                    x = cx + radius * Math.cos(-midAngle * RADIAN);
+                    y = cy + radius * Math.sin(-midAngle * RADIAN);
+                  }
+
+                  return (
+                    <text x={x} y={y} fill="#000000" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="hanging">
+                      {rankPieChartData[index].id} ({`${(percent * 100).toFixed(1)}%`})
+                    </text>
+                  );
+                }}
+              >
+                {rankPieChartData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} />
+                ))}
               </Pie>
             </PieChart>
           </Grid>
